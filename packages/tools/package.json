@@ -1,7 +1,7 @@
 {
   "name": "@oyic/tools",
   "version": "1.0.0",
-  "description": "@ovo/tools",
+  "description": "@oyic/tools",
   "type": "module",
   "main": "index.js",
   "scripts": {

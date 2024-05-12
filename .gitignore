@@ -5,3 +5,5 @@ explorations
 .vscode
 .idea
 dist
+**/*/.idea
+**/*/.DS_Store
