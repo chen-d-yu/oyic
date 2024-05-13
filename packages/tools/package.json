@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch 'dist/**/*.js' --exec 'node' -- 'dist/app.js'",
+    "dev": "nodemon ./test.js"
   },
   "keywords": [],
   "author": "",

@@ -7,8 +7,8 @@
  *
  * const isFuntion = is('Function')
  */
-function is(type: string) {
-  return function (value: unknown) {
+function is<T>(type: string) {
+  return function (value: T): value is T {
     return Object.prototype.toString.call(value) === `[object ${type}]`;
   };
 }
