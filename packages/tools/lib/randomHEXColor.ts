@@ -8,8 +8,8 @@
  * randomHEX()
  * // => #ffffff
  */
-function randomHEX(symbol: string = "#") {
+function randomHEXColor(symbol: string = "#") {
   return symbol + Math.random().toString(16).substring(2, 8).padEnd(6, "0");
 }
 
-export default randomHEX;
+export default randomHEXColor;

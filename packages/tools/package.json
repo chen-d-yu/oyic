@@ -2,12 +2,10 @@
   "name": "@oyic/tools",
   "version": "1.0.0",
   "description": "@oyic/tools",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch 'dist/**/*.js' --exec 'node' -- 'dist/app.js'",
-    "dev": "nodemon ./test.js"
+    "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' ./test.ts"
   },
   "keywords": [],
   "author": "",
