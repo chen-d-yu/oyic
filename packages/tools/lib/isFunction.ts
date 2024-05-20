@@ -8,7 +8,7 @@ import _is from "./_is";
  * @example
  * isFunction()
  */
-function isFunction<T = Function>(value: unknown): value is T {
+function isFunction<T = unknown>(value: unknown): value is T {
   return _is("Function")(value);
 }
 export default isFunction;

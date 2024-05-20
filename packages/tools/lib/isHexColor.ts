@@ -7,8 +7,8 @@
  * isHexColor('#fff')
  * => true
  */
-function isHexColor(str: string):str is string {
+function isHexColor(str: string): str is string {
   return /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(str);
 }
 
-export default isHexColor
+export default isHexColor;
