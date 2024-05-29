@@ -13,16 +13,13 @@ export { default as isArguments } from "./lib/isArguments";
 export { default as isRegExp } from "./lib/isRegExp";
 export { default as isSymbol } from "./lib/isSymbol";
 export { default as isNaN } from "./lib/isNaN";
-// export { default as isArrayBuffer } from "./lib/isArrayBuffer";
-// export { default as isError } from "./lib/isError";
-//
+export { default as isArrayBuffer } from "./lib/isArrayBuffer";
+export { default as isError } from "./lib/isError";
+export { default as isWeakSet } from "./lib/isWeakSet";
+export { default as isMap } from "./lib/isMap";
+export { default as isWeakMap } from "./lib/isWeakMap";
+export { default as isSet } from "./lib/isSet";
 
-// export { default as isMap } from "./lib/isMap";
-// export { default as isWeakMap } from "./lib/isWeakMap";
-// export { default as isSet } from "./lib/isSet";
-// export { default as isWeakSet } from "./lib/isWeakSet";
-//
-//
 // export { default as isTypedArray } from "./lib/isTypedArray";
 // export { default as isEmpty } from "./lib/isEmpty";
 // export { default as isMatch } from "./lib/isMatch";
