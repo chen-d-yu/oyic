@@ -1,7 +1,7 @@
 {
-  "name": "@oyic/tools",
+  "name": "tools",
   "version": "1.0.0",
-  "description": "@oyic/tools",
+  "description": "@oyic/tools 工具包",
   "module": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
