@@ -6,10 +6,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .cjs,.js,.ts,.jsx,.tsx --fix --quiet ./packages",
     "prepare": "husky",
-    "commit": "git add . && cz-customizable"
+    "commit": "git add . && cz-customizable",
+    "build:dev": "rollup --bundleConfigAsCjs --config scripts/rollup/tools.config.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
+    "@rollup/plugin-commonjs": "^26.0.1",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "commitizen": "^4.3.0",
@@ -25,6 +27,7 @@
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "rollup": "^4.17.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.4.5"
   }
 }

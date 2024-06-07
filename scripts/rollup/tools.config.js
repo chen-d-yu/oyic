@@ -1,11 +1,21 @@
+import { getBaseRollupPlugins, getPckJSON, resolvePkgPath } from "../utils";
+
+const { name, module } = getPckJSON("tools");
+const pkgPath = resolvePkgPath(name);
+const pkgDistPath = resolvePkgPath(name, true);
+
 export default [
   {
-    input: "src/tools.ts",
+    input: `${pkgPath}/${module}`,
     output: {
-      file: "dist/tools.js",
-      format: "cjs",
+      file: `${pkgDistPath}/index.js`,
+      name: "index.js",
+      format: "umd",
     },
-    external: ["tslib"],
-    plugins: [],
+    plugins: getBaseRollupPlugins({
+      typescript: {
+        tsconfig: "tsconfig.json",
+      },
+    }),
   },
 ];
