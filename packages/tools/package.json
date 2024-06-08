@@ -1,5 +1,6 @@
 {
-  "name": "tools",
+  "name": "@oyic/tools",
+  "pkgName": "tools",
   "version": "1.0.0",
   "description": "@oyic/tools 工具包",
   "module": "index.ts",

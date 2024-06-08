@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import ts from "rollup-plugin-typescript2";
+import typescript from "rollup-plugin-typescript2";
 import cjs from "@rollup/plugin-commonjs";
 
 const pkgPath = path.resolve(__dirname, "../../packages");
@@ -19,6 +19,6 @@ export function resolvePkgPath(pkgName, isDist) {
   return `${pkgPath}/${pkgName}`;
 }
 
-export function getBaseRollupPlugins({ typescript = {} } = {}) {
-  return [ts(typescript), cjs()];
+export function getBaseRollupPlugins({ tsOpts = {} } = {}) {
+  return [typescript(tsOpts), cjs()];
 }

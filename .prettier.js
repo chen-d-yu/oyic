@@ -66,7 +66,7 @@ module.exports = {
    * @default "lf"
    * @type {"lf"|"crlf"|"cr"|"auto"}
    */
-  endOfLine: "auto",
+  endOfLine: "lf",
   /**
    * 因为使用了一些折行敏感型的渲染器（如GitHub comment）而按照markdown文本样式进行折行
    * @default "preserve"

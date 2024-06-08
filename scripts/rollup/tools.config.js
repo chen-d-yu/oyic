@@ -1,9 +1,9 @@
 import { getBaseRollupPlugins, getPckJSON, resolvePkgPath } from "../utils";
+import generatePackageJson from "rollup-plugin-generate-package-json";
 
-const { name, module } = getPckJSON("tools");
-const pkgPath = resolvePkgPath(name);
+const { pkgName, name, module } = getPckJSON("tools");
+const pkgPath = resolvePkgPath(pkgName);
 const pkgDistPath = resolvePkgPath(name, true);
-
 export default [
   {
     input: `${pkgPath}/${module}`,
@@ -12,10 +12,22 @@ export default [
       name: "index.js",
       format: "umd",
     },
-    plugins: getBaseRollupPlugins({
-      typescript: {
-        tsconfig: "tsconfig.json",
-      },
-    }),
+    plugins: [
+      ...getBaseRollupPlugins({
+        tsOpts: {
+          tsconfig: "tsconfig.json",
+        },
+      }),
+      generatePackageJson({
+        inputFolder: pkgPath,
+        outputFolder: pkgDistPath,
+        baseContents: ({ name, description, version }) => ({
+          name,
+          description,
+          version,
+          main: "index.js",
+        }),
+      }),
+    ],
   },
 ];

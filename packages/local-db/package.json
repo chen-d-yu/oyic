@@ -1,5 +1,6 @@
 {
-  "name": "local-db",
+  "name": "@oyic/local-db",
+  "pkgName": "local-db",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
