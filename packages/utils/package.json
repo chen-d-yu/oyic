@@ -1,0 +1,40 @@
+{
+  "name": "@oyic/utils",
+  "buildOptions": {
+    "name": "utils",
+    "module": "index.ts"
+  },
+  "version": "1.0.0",
+  "description": "utils",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "module": "./esm/index.js",
+        "browser": {
+          "production": "./utils-esm-min.js",
+          "default": "./utils-esm.js"
+        },
+        "default": "./utils-esm.js"
+      },
+      "require": {
+        "module": "./cjs/index.js",
+        "browser": {
+          "production": "./utils-umd-min.js",
+          "default": "./utils-umd.js"
+        },
+        "default": "./utils-umd.js"
+      },
+      "default": "./utils-umd.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' ./test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
