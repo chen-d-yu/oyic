@@ -1,12 +1,12 @@
-import { getBaseRollupPlugins, getPckJSON, resolvePkgPath } from "./utils";
+import { getCommonRollupPlugins, getCommonOptions } from "./utils";
 import generatePackageJson from "rollup-plugin-generate-package-json";
+import { uglify } from "rollup-plugin-uglify";
 
 const {
-  name, // 发布到npm的name
-  buildOptions: { name: pkgName, module },
-} = getPckJSON("utils");
-const pkgPath = resolvePkgPath(pkgName);
-const pkgDistPath = resolvePkgPath(name, true);
+  distPath,
+  pkgPath,
+  buildOptions: { module },
+} = getCommonOptions("utils");
 
 /**
  * @type {import('rollup').RollupOptions}
@@ -15,36 +15,39 @@ export default [
   {
     input: `${pkgPath}/${module}`,
     output: {
-      file: `${pkgDistPath}/esm/index.js`,
+      file: `${distPath}/utils-umd.js`,
       name: "index.js",
       format: "umd",
-      sourcemap: true,
     },
     plugins: [
-      ...getBaseRollupPlugins({
+      ...getCommonRollupPlugins({
         tsOpts: {
           tsconfig: "tsconfig.json",
         },
       }),
       generatePackageJson({
         inputFolder: pkgPath,
-        outputFolder: pkgDistPath,
-        baseContents: ({
-          name,
-          description,
-          version,
-          exports,
-          main,
-          module,
-        }) => ({
-          name,
-          description,
-          version,
-          exports,
-          main,
-          module,
-        }),
+        outputFolder: distPath,
+        baseContents: ({ buildOptions, typings, scripts, ...restField }) =>
+          restField,
       }),
+    ],
+  },
+  {
+    input: `${pkgPath}/${module}`,
+    output: {
+      file: `${distPath}/utils-umd.min.js`,
+      name: "index.js",
+      format: "umd",
+      sourcemap: true,
+    },
+    plugins: [
+      ...getCommonRollupPlugins({
+        tsOpts: {
+          tsconfig: "tsconfig.json",
+        },
+      }),
+      uglify(),
     ],
   },
 ];

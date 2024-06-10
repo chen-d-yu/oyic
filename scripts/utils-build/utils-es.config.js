@@ -30,7 +30,7 @@ const list = glob.globSync(pattenPath).map((file) => {
   );
   return createSingleFileConfig(
     { [name]: path.resolve(file) },
-    { dir: `${distPath}/cjs`, format: "cjs", exports: "named" },
+    { dir: `${distPath}/es`, format: "es" },
   );
 });
 
@@ -39,9 +39,9 @@ export default [
   {
     input: `${pkgPath}/${module}`,
     output: {
-      file: `${distPath}/utils-cjs.js`,
+      file: `${distPath}/utils-es.js`,
       name: "index.js",
-      format: "cjs",
+      format: "es",
     },
     plugins: [
       ...getCommonRollupPlugins({
@@ -54,9 +54,9 @@ export default [
   {
     input: `${pkgPath}/${module}`,
     output: {
-      file: `${distPath}/utils-cjs.min.js`,
+      file: `${distPath}/utils-es.min.js`,
       name: "index.js",
-      format: "cjs",
+      format: "es",
       sourcemap: true,
     },
     plugins: [

@@ -1,40 +1,60 @@
 {
   "name": "@oyic/utils",
+  "keywords": [
+    "utils",
+    "oyic",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chen-d-yu/oyic.git"
+  },
   "buildOptions": {
     "name": "utils",
     "module": "index.ts"
   },
   "version": "1.0.0",
   "description": "utils",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
+  "main": "./cjs/index.js",
+  "module": "./es/index.js",
+  "types": "./index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "module": "./esm/index.js",
+        "module": "./es/index.js",
         "browser": {
-          "production": "./utils-esm-min.js",
+          "production": "./utils-esm.min.js",
           "default": "./utils-esm.js"
         },
+        "node": "./utils-esm.js",
         "default": "./utils-esm.js"
       },
       "require": {
-        "module": "./cjs/index.js",
+        "module": "./es/index.js",
         "browser": {
-          "production": "./utils-umd-min.js",
+          "production": "./utils-umd.min.js",
           "default": "./utils-umd.js"
         },
+        "node": "./utils-umd.js",
         "default": "./utils-umd.js"
       },
       "default": "./utils-umd.js"
     },
+    "./utils*": "./utils*",
+    "./es/*": {
+      "require": "./cjs/*",
+      "default": "./es/*"
+    },
+    "./cjs/*": "./cjs/*",
     "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' ./test.ts"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
 }
