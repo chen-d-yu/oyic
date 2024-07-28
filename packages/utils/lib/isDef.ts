@@ -8,7 +8,7 @@
  * => false
  */
 function isDef<T = unknown>(value?: T): value is T {
-  return typeof value !== void 0;
+  return value !== void 0;
 }
 
 export default isDef;
